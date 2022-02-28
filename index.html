@@ -8,14 +8,17 @@
     <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-    <h1>Welcome to Veshena's Tic-Tac-Toe Game</h1>
-    <h2>Game Rules
+    <div class ="container">
+        <span class="text1">Welcome To</span>
+        <span class="text2">Veshena Tic-Tac-Toe Game</span>
+    <h1>Game Rules
         <p>This game is played on a grid that's 3 squares by 3 squares.
             You are V, and your friend (or the computer in this case) is G.
             Players take turns putting their marks in empty squares.
             The first player to get 3 marks in a row (horizontally, vertically, or diagonally) is the winner.
             When all 9 squares are full, the game is over.</p>
-    </h2>
+    </h1>
+    </div>
     <div id="board">
         <div data-index="1" class="tile right-border bottom-border"></div>
         <div data-index="2" class="tile right-border bottom-border"></div>
@@ -29,7 +32,7 @@
         <div id="strike" class="strike"></div>
     </div>
     <div id="game-over-area" class="hidden">
-        <h3 id="game-over-text">WINNER!</h3>
+        <h2 id="game-over-text">WINNER!</h2>
         <button id="play-again">Play Again</button>
     </div>
     <div class="wrapper">

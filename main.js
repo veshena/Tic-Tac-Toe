@@ -1,12 +1,29 @@
-const tiles = document.querySelectorAll(".tile");
+const tiles = document.querySelector("board");
 
 const PLAYER_V = "V";
 const PLAYER_G = "G";
 
+let seclectedTile;
+let num = 0
 let turn = PLAYER_V;
 
-const boardState = Array(tiles.length);
+const boardState = Array(board.length);
 boardState.fill(null);  
+
+
+tile.onclick = function(event){
+    let targetTile = event.target;
+    tile(targetTile);
+}
+const tile = (tile) => {
+    if(num % 2 === 0){
+        console.log("Even Number")
+        tile.innerText = "V";
+    } else {
+        tile.innerText = "G"
+    }
+    num++
+};
 
 
 const strike = document.getElementById("strike");
@@ -15,45 +32,16 @@ const gameOverText = document.getElementById("game-over-text");
 const playAgain = document.getElementById("play-again");
 
 
-tiles.forEach((tile) => tile.addEventListener("click", tileClick));
-
-
-
-function tileClick(event) {
-    if (gameOverArea.classList.contains("visible")) {
-        return;
-    }
-    const tile = event.target;
-    const tileNumber = tile.dataset.index;
-    if (tile.innetText != "") {
-        return;
-    }
-    if (turn === PLAYER) {
-        tile.innerText = PLAYER;
-        boardState[tileNumber - 1] = PLAYER;
-        turn = PLAYER;
-    }
-    else {
-        tile.innerText = PLAYER;
-        boardState[tileNumber - 1] = PLAYER;
-        turn = PLAYER;
-    };
-    setHoverText();
-    checkWinner();
-};
-
-
-
 function setHoverText() {
-    tiles.forEach(tile => {
-        tile.classList.remove("v-hover")
-        tile.classList.remove("g-hover")
+    board.forEach(tile => {
+        board.classList.remove("v-hover")
+        board.classList.remove("g-hover")
     });
     const hoverClass = `${turn.toLowerCase()}-hover`;
 
-    tiles.forEach(tile => {
-        if(tile.innerText === ""){
-            tile.classList.add(hoverClass);
+    board.forEach(board => {
+        if(board.innerText === ""){
+            board.classList.add(hoverClass);
         }
     });
 }
