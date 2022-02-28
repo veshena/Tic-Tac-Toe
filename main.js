@@ -1,20 +1,42 @@
-const tiles = document.querySelector("board");
-
 const PLAYER_V = "V";
 const PLAYER_G = "G";
 
-let seclectedTile;
 let num = 0
 let turn = PLAYER_V;
+const tiles = document.querySelectorAll(".tile");
+// console.log(tiles);
 
-const boardState = Array(board.length);
-boardState.fill(null);  
-
-
-tile.onclick = function(event){
-    let targetTile = event.target;
-    tile(targetTile);
+const clickTile = (sq) => {
+    console.log(sq.target)
+let mySq = sq.target
+mySq.innerText = "V"
 }
+
+
+const mark = (sq) => {
+if (turn){
+    sq.innerText = "V";
+    turn = false;
+} else {
+    sq.innerText = "G"
+    turn = true;
+}
+}
+
+
+tiles.forEach ((tile) => {
+    tile.addEventListener("click", clickTile)
+// console.log(tile)
+})
+
+
+// const boardState = Array(board.length);
+// boardState.fill(null);  
+
+// tile.onclick = function(event){
+//     let targetTile = event.target;
+//     tile(targetTile);
+// }
 const tile = (tile) => {
     if(num % 2 === 0){
         console.log("Even Number")
@@ -32,23 +54,23 @@ const gameOverText = document.getElementById("game-over-text");
 const playAgain = document.getElementById("play-again");
 
 
-function setHoverText() {
-    board.forEach(tile => {
-        board.classList.remove("v-hover")
-        board.classList.remove("g-hover")
-    });
-    const hoverClass = `${turn.toLowerCase()}-hover`;
+// function setHoverText() {
+//     tile.forEach(tile => {
+//         tile.classList.remove("v-hover")
+//         tile.classList.remove("g-hover")
+//     });
+//     const hoverClass = `${turn.toLowerCase()}-hover`;
 
-    board.forEach(board => {
-        if(board.innerText === ""){
-            board.classList.add(hoverClass);
-        }
-    });
-}
-setHoverText();
+//     tile.forEach(tile => {
+//         if(tile.innerText === ""){
+//             tile.classList.add(hoverClass);
+//         }
+//     });
+// }
+// setHoverText(tile);
 
 
-
+// Check winner
 function checkWinner() {
     for(const winningCombination of winningCombinations){
         const {combo, strikeClass} = winningCombination;
@@ -69,36 +91,7 @@ function checkWinner() {
 };
 
 
-
-const allTileFilledIn = boardState.every((tile) => tile !== null);
-if(allTileFilledIn){
-    gameOverScreen(null);
-};
-
-
-
-function gameOverScreen(winnerText){
-    let text = "Draw!"
-    if(winnerText != null) {
-        text = `Winner is ${winnerText}`;
-    };
-    gameOverArea.className = "visible";
-    gameOverText.innerText = text;
-};
-
-
-
-function startNewGame(){
-    strike.className = "strike";
-    gameOverArea.className = "hidden";
-    boardState.fill(null);
-    tiles.forEach((tiles) => (tiles.innerText = ""));
-    turn = PLAYER-V;
-setHoverText(); 
-};
-
-
-
+// Combination
 const winningCombinations = [
     { combo:[1, 2, 3], strikeClass: "strike-row-1" },
     { combo:[4, 5, 6], strikeClass: "strike-row-2" },
@@ -112,3 +105,31 @@ const winningCombinations = [
     { combo:[3, 5, 7], strikeClass: "strike-diagonal-2"},
 ];
 
+
+
+
+// Game Over
+function gameOverScreen(winnerText){
+    let text = "Draw!"
+    if(winnerText != null) {
+        text = `Winner is ${winnerText}`;
+    };
+    gameOverArea.className = "visible";
+    gameOverText.innerText = text;
+};
+const allTileFilledIn = boardState.every((tile) => tile !== null);
+if(allTileFilledIn){
+    gameOverScreen(null);
+};
+
+
+
+// New Game
+function startNewGame(){
+    strike.className = "strike";
+    gameOverArea.className = "hidden";
+    boardState.fill(null);
+    tiles.forEach((tiles) => (tiles.innerText = ""));
+    turn = PLAYER_V;
+setHoverText(); 
+};
