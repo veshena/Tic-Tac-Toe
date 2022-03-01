@@ -161,9 +161,9 @@ button {
     font-size: 0.5em;
 }
 
-/* .hidden {
+.hidden {
     display: none;
-} */
+}
 
 .visible {
     display: block;
