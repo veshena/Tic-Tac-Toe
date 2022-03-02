@@ -22,6 +22,7 @@ function player() {
     playerTurn.innerText = Player_V + "'s Turn!";
 }
 
+
 function clickedTile(tile) {
     tile.innerText = Player_V;
     plays++;
@@ -87,7 +88,7 @@ const winner = () => {
         const gameOverDiv = document.getElementById("game-over-area");
         gameOverDiv.classList.remove("hidden");
         reset();
-        console.log("Winner!")
+        console.log("Click play again to restart!")
 
     }
 }
@@ -95,7 +96,6 @@ const winner = () => {
 function reset() {
     board.onclick = "";
 }
-
 
 function playAgain() {
     currentLetter = "V";
@@ -111,9 +111,12 @@ function playAgain() {
     tile7.innerText = "";
     tile8.innerText = "";
     tile9.innerText = "";
+    
     gameplay();
 }
 
 gameplay();
 let restartButton = document.getElementById("play-again")
 restartButton.addEventListener('click', playAgain);
+
+
