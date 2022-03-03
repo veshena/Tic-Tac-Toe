@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veshena's Tic-Tac-Toe</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class ="container">
+        <span class="text1">Welcome To</span>
+        <span class="text2">Veshena Tic-Tac-Toe Game</span>
+    <h1>Game Rules
+        <p>This game is played on a grid that's 3 squares by 3 squares.
+            You are V, and your friend (or the computer in this case) is G.
+            Players take turns putting their marks in empty squares.
+            The first player to get 3 marks in a row (horizontally, vertically, or diagonally) is the winner.
+            When all 9 squares are full, the game is over.</p>
+    </h1>
+    </div>
+    <div id="Player_V"></div>
+    <div id="board">
+        <div id="t1" data-index="1" class="right-border bottom-border"></div>
+        <div id="t2" data-index="2" class="right-border bottom-border"></div>
+        <div id="t3" data-index="3" class="bottom-border"></div>
+        <div id="t4" data-index="4" class="right-border bottom-border"></div>
+        <div id="t5" data-index="5" class="right-border bottom-border"></div>
+        <div id="t6" data-index="6" class="bottom-border"></div>
+        <div id="t7" data-index="7" class="right-border"></div>
+        <div id="t8" data-index="8" class="right-border"></div>
+        <div id="t9" data-index="9" class=""></div>
+        <div id="strike" class="strike"></div>
+    </div>
+    <div id="game-over-area" class="hidden">
+        <h2 id="game-over-text">Click play again to restart!</h2>
+        <button id="play-again">Play Again</button>
+    </div>
+    <div class="wrapper">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="https://git.generalassemb.ly/veshena22?tab=repositories">GitHub</a></li>
+            <li><a href="https://twitter.com/VeshenaW">Twitter</a></li>
+            <li><a href="https://www.instagram.com/veshenaw/">Instagram</a></li>
+        </ul>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
