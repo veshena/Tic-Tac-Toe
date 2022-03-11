@@ -1,6 +1,5 @@
 ## PLAY GAME
-To play visit https://veshena.github.io/
-Tic-Tac-Toe/
+To play visit https://veshena.github.io/Tic-Tac-Toe/
 
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 
